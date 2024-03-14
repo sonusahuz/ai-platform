@@ -14,7 +14,7 @@ function ChatResponse({
         className="p-2 rounded bg-blue-600 text-white lg:ml-96 w-auto"
         key={id}
       >
-        <p>{question}</p>import React from 'react';
+        <p>{question}</p>
       </div>
 
       {/* answer  */}
