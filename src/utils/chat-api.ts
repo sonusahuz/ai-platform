@@ -33,7 +33,7 @@ export const chatMessage = async (question: string) => {
         ],
         temperature: 1,
         top_p: 1,
-        max_tokens: -1,
+        max_tokens: 150,
         use_cache: false,
         stream: false,
       },
