@@ -40,7 +40,7 @@ function ChatBox() {
             id={item.id}
           />
         ))}
-        <h1 className="text-center">{loading && "Loading..."}</h1>
+        <h1 className="text-center animate-pulse">{loading && "Loading..."}</h1>
         <form
           onSubmit={handleSubmit}
           className="bottom-7 right-0 left-0 rounded m-2 fixed flex items-center justify-between p-2 bg-white "
