@@ -1,12 +1,18 @@
-import React from "react";
-import ChatBox from "./components/ChatBox";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./components/home/HomePage";
+import ChatBot from "./components/ai-chatbot/ChatBox";
+import ImageGenerator from "./components/ai-image-generate/ImageGenerator";
+import TextSummarization from "./components/ai-summarization/TextSummariztion";
 function App() {
   return (
-    <div className="m-2">
-      <h1 className="text-3xl font-bold text-center my-5 mb-10">AI ChatBot.</h1>
-      <ChatBox />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<HomePage />} path="/" />
+        <Route element={<ChatBot />} path="/ai-chatbot" />
+        <Route element={<ImageGenerator />} path="/ai-image-generator" />
+        <Route element={<TextSummarization />} path="/ai-text-summarization" />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

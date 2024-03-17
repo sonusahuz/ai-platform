@@ -8,8 +8,7 @@ export interface Chat {
   question: string;
   answer: string;
 }
-
-export const chatMessage = async (question: string) => {
+export const chatBot = async (question: string) => {
   try {
     const response = await axios.request({
       method: "POST",
@@ -38,8 +37,25 @@ export const chatMessage = async (question: string) => {
         stream: false,
       },
     });
-
     return response.data.choices[0].message.content;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const generateImage = async (text: string, url: string) => {
+  try {
+    const response = await axios.request({
+      method: "POST",
+      url: `https://open-ai21.p.rapidapi.com/${url}`,
+      headers: {
+        "content-type": "application/json",
+        "X-RapidAPI-Key": "cba052b53dmsh2b037f8a5045067p14689cjsn35a355f36249",
+        "X-RapidAPI-Host": "open-ai21.p.rapidapi.com",
+      },
+      data: { text: text, size: "512x512" },
+    });
+    return response.data;
   } catch (error) {
     console.error(error);
   }
