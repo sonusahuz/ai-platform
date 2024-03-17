@@ -52,7 +52,7 @@ function ChatBot() {
     }
   };
   return (
-    <div className="">
+    <div className="px-2">
       <div className="text-center">
         <h1 className="text-5xl font-bold py-8">AI ChatBot</h1>
         {aiResponse.length === 0 && (

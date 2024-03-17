@@ -37,9 +37,9 @@ export default function Component() {
           <section className="" id="explore-ai">
             <div className="container">
               <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
-                <div className="flex flex-col items-center space-y-4 p-4">
-                  <div className="flex items-center justify-center w-16 h-16 p-3 rounded-full bg-gray-100 dark:bg-gray-800">
-                    <Bot className="w-10 h-10" />
+                <div className="flex flex-col items-center space-y-4 p-4 border-2 lg:border-0 rounded">
+                  <div className="flex items-center justify-center w-20 h-20 p-3 rounded-full bg-gray-100 dark:bg-gray-800">
+                    <Bot className="w-20 h-20" />
                   </div>
                   <h3 className="text-lg font-semibold text-center">
                     AI ChatBot
@@ -48,9 +48,9 @@ export default function Component() {
                     <Link to={"/ai-chatbot"}>Generate</Link>
                   </button>
                 </div>
-                <div className="flex flex-col items-center space-y-4">
-                  <div className="flex items-center justify-center w-16 h-16 p-3 rounded-full bg-gray-100 dark:bg-gray-800">
-                    <Image className="w-10 h-10" />
+                <div className="flex flex-col items-center space-y-4 border-2 lg:border-0 rounded p-4">
+                  <div className="flex items-center justify-center w-20 h-20 p-3 rounded-full bg-gray-100 dark:bg-gray-800">
+                    <Image className="w-20 h-20" />
                   </div>
                   <h3 className="text-lg font-semibold text-center">
                     AI Image Generator
@@ -60,9 +60,9 @@ export default function Component() {
                   </button>
                 </div>
 
-                <div className="flex flex-col items-center space-y-4">
-                  <div className="flex items-center justify-center w-16 h-16 p-3 rounded-full bg-gray-100 dark:bg-gray-800">
-                    <ScrollText className="w-10 h-10" />
+                <div className="flex flex-col items-center space-y-4 border-2 lg:border-0  p-4">
+                  <div className="flex items-center justify-center w-20 h-20 p-3 rounded-full bg-gray-100 dark:bg-gray-800">
+                    <ScrollText className="w-20 h-20" />
                   </div>
                   <h3 className="text-lg font-semibold text-center">
                     AI Text Summarization
@@ -78,7 +78,7 @@ export default function Component() {
           <footer>
             <div className="border-t py-2">
               <div className="container text-center text-sm text-gray-500 dark:text-gray-400">
-               Designed and Developed by{" "}
+                Designed and Developed by{" "}
                 <a
                   className=" text-blue-700"
                   href="https://sonusahu.vercel.app"
