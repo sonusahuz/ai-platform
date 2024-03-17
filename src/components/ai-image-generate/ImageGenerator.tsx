@@ -47,7 +47,7 @@ function ImageGenerator() {
         <div className="mt-6">
           {loading ? (
             <div className="h-96 w-full animate-pulse bg-gray-300 flex items-center justify-center">
-              <h1>Loading...</h1>
+              <h1>Loading Please wait...</h1>
             </div>
           ) : (
             <div>
@@ -55,8 +55,8 @@ function ImageGenerator() {
                 <>
                   <img src={image} alt="generate-image" />
                   <button
-                    onClick={handleDownload}
-                    className="p-2 mt-4 bg-blue-500 text-white rounded"
+                    onClick={() => window.open(image)}
+                    className="p-2 mt-4 bg-blue-500 text-white rounded animate-bounce"
                   >
                     Download Image
                   </button>
