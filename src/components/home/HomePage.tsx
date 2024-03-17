@@ -78,8 +78,13 @@ export default function Component() {
           <footer>
             <div className="border-t py-2">
               <div className="container text-center text-sm text-gray-500 dark:text-gray-400">
-                © 2024 AI Multiverse. Designed and Developed by{" "}
-                <span className=" text-blue-700">Sonu Sahu</span>.
+                © 2024 Designed and Developed by{" "}
+                <a
+                  className=" text-blue-700"
+                  href="https://sonusahu.vercel.app"
+                >
+                  Sonu Sahu.
+                </a>
               </div>
             </div>
           </footer>
