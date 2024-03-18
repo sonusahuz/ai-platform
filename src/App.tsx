@@ -6,6 +6,11 @@ import TextSummarization from "./components/text-summarization/TextSummariztion"
 import Translate from "./components/ai-translate/LanguageTranslate";
 import InstagramPostDowloader from "./components/instagram-post-downloader/InstagramPostDowloader";
 import YoutubeMp3Dowloader from "./components/youtube-audio-downloader/YoutubeAudioDownloader";
+import RemoveBackground from "./components/remove-background/RemoveBackground";
+import PasswordGenerator from "./components/password-generator/PasswordGenerator";
+import ObjectsDetection from "./components/objects-detection/ObjectDetection";
+import CartoonGenerator from "./components/ai-cartoon-generator/CartoonGenerator";
+import YoutubeVideoDowloader from "./components/youtube-video-downloader/YoutubeVideoDownloader";
 function App() {
   return (
     <BrowserRouter>
@@ -15,7 +20,14 @@ function App() {
         <Route element={<ImageGenerator />} path="/ai-image-generator" />
         <Route element={<TextSummarization />} path="/ai-text-summarization" />
         <Route element={<Translate />} path="/ai-translate" />
-        <Route element={<Translate />} path="/ai-translate" />
+        <Route element={<RemoveBackground />} path="/ai-remove-background" />
+        <Route element={<PasswordGenerator />} path="/ai-password-generator" />
+        <Route element={<ObjectsDetection />} path="/ai-object-detection" />
+        <Route element={<CartoonGenerator />} path="/ai-cartoon-generator" />
+        <Route
+          element={<YoutubeVideoDowloader />}
+          path="/ai-youtube-video-downloader"
+        />
 
         <Route
           element={<YoutubeMp3Dowloader />}

@@ -2,10 +2,15 @@ import {
   Bot,
   Download,
   Image,
+  ImageOff,
   Languages,
+  Lock,
+  Scissors,
   ScrollText,
-  Volume2,
+  ShieldQuestion,
+  Smile,
   Youtube,
+  YoutubeIcon,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -13,12 +18,14 @@ const AIServices = [
   {
     id: "1",
     name: "AI ChatBot",
+    text: "Chat with AI",
     icon: <Bot className="w-20 h-20" />,
     path: "/ai-chatbot",
   },
   {
     id: "2",
     name: "AI Image Generator",
+    text: "Generate AI Image",
     icon: <Image className="w-20 h-20" />,
     path: "/ai-image-generator",
   },
@@ -26,26 +33,65 @@ const AIServices = [
   {
     id: "3",
     name: "AI Language Translator",
+    text: "Translate Text",
     icon: <Languages className="w-20 h-20" />,
     path: "/ai-translate",
   },
   {
     id: "4",
     name: "Instagram Post Downloader",
+    text: "Download Instagram Post",
     icon: <Download className="w-20 h-20" />,
     path: "/ai-instagram-post-downloader",
   },
   {
     id: "5",
-    name: "AI Text Summarization",
+    name: "AI Text Summarizer",
+    text: "Summarize Text",
     icon: <ScrollText className="w-20 h-20" />,
     path: "/ai-text-summarization",
   },
   {
     id: "6",
-    name: "Youtube Mp4 to Mp3 Converter",
+    name: "Youtube Mp4 to Mp3 Audio Converter",
+    text: "Convert Video to Audio",
     icon: <Youtube className="w-20 h-20" />,
     path: "/ai-youtube-mp3-downloader",
+  },
+  {
+    id: "7",
+    name: "Remove Image Background",
+    text: "Remove Background",
+    icon: <ImageOff className="w-20 h-20" />,
+    path: "/ai-remove-background",
+  },
+  {
+    id: "8",
+    name: "Random Password Generator",
+    text: "Generate Password",
+    icon: <Lock className="w-20 h-20" />,
+    path: "/ai-password-generator",
+  },
+  {
+    id: "9",
+    name: "Objects Detection",
+    text: "Detect Objects",
+    icon: <ShieldQuestion className="w-20 h-20" />,
+    path: "/ai-object-detection",
+  },
+  {
+    id: "10",
+    name: "AI Cartoon Generator",
+    text: "Generate AI Cartoon",
+    icon: <Smile className="w-20 h-20" />,
+    path: "/ai-cartoon-generator",
+  },
+  {
+    id: "11",
+    name: "Youtube Video and Thumbnail Downloader",
+    text: "Download Video",
+    icon: <YoutubeIcon className="w-20 h-20" />,
+    path: "/ai-youtube-video-downloader",
   },
 ];
 
@@ -67,9 +113,12 @@ export default function Component() {
                     and predictive modeling.
                   </p>
                   <div className="space-y-4">
-                    <button className="py-3 w-40 rounded bg-black text-white">
-                      <a href="#services"> Explore AI</a>
-                    </button>
+                    <a
+                      href="#services"
+                      className="py-3 px-5 w-40 rounded bg-black text-white"
+                    >
+                      Explore AI
+                    </a>
                   </div>
                 </div>
               </div>
@@ -97,7 +146,7 @@ export default function Component() {
                       {service.name}
                     </h3>
                     <button className="px-4 py-2 text-sm rounded bg-black text-white">
-                      <Link to={service.path}>Generate</Link>
+                      <Link to={service.path}>{service.text}</Link>
                     </button>
                   </div>
                 ))}

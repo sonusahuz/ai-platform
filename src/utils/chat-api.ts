@@ -129,6 +129,116 @@ export const youtubeDownloader = async (url: string) => {
   }
 };
 
+export const removeBackground = async (image: any, bg_image: string) => {
+  const data = new FormData();
+  data.append("image", image);
+  data.append("bg_image", bg_image);
+  data.append("bg_blur", "0");
+  data.append("format", "PNG");
+
+  const options = {
+    method: "POST",
+    url: "https://picsart-remove-background2.p.rapidapi.com/removebg",
+    headers: {
+      "X-RapidAPI-Key": "cba052b53dmsh2b037f8a5045067p14689cjsn35a355f36249",
+      "X-RapidAPI-Host": "picsart-remove-background2.p.rapidapi.com",
+    },
+    data: data,
+  };
+  try {
+    const response = await axios.request(options);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const passwordGenerator = async (length: string) => {
+  const options = {
+    method: "GET",
+    url: "https://password-generator-by-api-ninjas.p.rapidapi.com/v1/passwordgenerator",
+    params: {
+      length: length,
+      exclude_numbers: "true",
+      exclude_special_chars: "true",
+    },
+    headers: {
+      "X-RapidAPI-Key": "3eca7a546fmsh520b6309845ef5dp1dfcc7jsnac8bb8092ec5",
+      "X-RapidAPI-Host": "password-generator-by-api-ninjas.p.rapidapi.com",
+    },
+  };
+
+  try {
+    const response = await axios.request(options);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const objectDetection = async (image: File) => {
+  const data = new FormData();
+  data.append("image", image);
+  const options = {
+    method: "POST",
+    url: "https://objects-detection.p.rapidapi.com/objects-detection",
+    headers: {
+      "content-type": "application/x-www-form-urlencoded",
+      "X-RapidAPI-Key": "3eca7a546fmsh520b6309845ef5dp1dfcc7jsnac8bb8092ec5",
+      "X-RapidAPI-Host": "objects-detection.p.rapidapi.com",
+    },
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(options);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const cartoonGenerator = async (image: File, type: string) => {
+  const data = new FormData();
+  data.append("image", image);
+  data.append("type", type);
+
+  const options = {
+    method: "POST",
+    url: "https://cartoon-yourself.p.rapidapi.com/facebody/api/portrait-animation/portrait-animation",
+    headers: {
+      "X-RapidAPI-Key": "3eca7a546fmsh520b6309845ef5dp1dfcc7jsnac8bb8092ec5",
+      "X-RapidAPI-Host": "cartoon-yourself.p.rapidapi.com",
+    },
+    data: data,
+  };
+
+  try {
+    const response = await axios.request(options);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const youtubeVideoDownloader = async (videoId: string) => {
+  const options = {
+    method: "GET",
+    url: "https://ytstream-download-youtube-videos.p.rapidapi.com/dl",
+    params: { id: videoId },
+    headers: {
+      "X-RapidAPI-Key": "3eca7a546fmsh520b6309845ef5dp1dfcc7jsnac8bb8092ec5",
+      "X-RapidAPI-Host": "ytstream-download-youtube-videos.p.rapidapi.com",
+    },
+  };
+
+  try {
+    const response = await axios.request(options);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const speakLanguages = [
   { name: "Afrikaans", code: "af" },
   { name: "Albanian", code: "sq" },
@@ -222,4 +332,47 @@ export const speakLanguages = [
   { name: "Swedish", code: "sv" },
   { name: "Tagalog (Filipino)", code: "tl" },
   { name: "Tajik", code: "tg" },
+];
+
+export const cartoonType = [
+  {
+    id: "1",
+    type: "3d_cartoon",
+  },
+  {
+    id: "2",
+    type: "pixar",
+  },
+  {
+    id: "3",
+    type: "avatar",
+  },
+  {
+    id: "4",
+    type: "angel",
+  },
+  {
+    id: "5",
+    type: "demon",
+  },
+  {
+    id: "6",
+    type: "ukiyoe_cartoon",
+  },
+  {
+    id: "7",
+    type: "bopu_cartoon",
+  },
+  {
+    id: "8",
+    type: "famous",
+  },
+  {
+    id: "9",
+    type: "amcartoon",
+  },
+  {
+    id: "10",
+    type: "jpcartoon",
+  },
 ];

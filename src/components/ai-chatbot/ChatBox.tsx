@@ -52,7 +52,7 @@ function ChatBot() {
     }
   };
   return (
-    <div className="px-2">
+    <div className="px-2 mx-auto">
       <div className="text-center">
         <h1 className="text-5xl font-bold py-8">AI ChatBot</h1>
         {aiResponse.length === 0 && (
@@ -103,14 +103,14 @@ function ChatBot() {
           </h1>
           <form
             onSubmit={handleSubmit}
-            className="bottom-7 right-0 left-0 rounded m-2 fixed flex items-center justify-between p-2 bg-white "
+            className="bottom-7 right-96 left-0 rounded m-2 fixed flex items-center justify-between p-2 bg-white "
           >
             <input
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Type your message..."
-              className="px-2 py-2 mr-2 rounded border-2 w-full"
+              className="px-2 py-2 mr-2 rounded border-2 mx-auto w-[600px]"
             />
             <button
               type="submit"

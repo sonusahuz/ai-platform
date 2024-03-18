@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { generateImage } from "../../utils/chat-api";
+import { generateImage, passwordGenerator } from "../../utils/chat-api";
+import { Copy } from "lucide-react";
 
-function TextSummarization() {
-  const [summaryText, setSummaryText] = useState<string>();
+function PasswordGenerator() {
+  const [password, setPassword] = useState<string>();
   const [text, setText] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
   const handleImage = async () => {
     setLoading(true);
     try {
-      await generateImage(text, "summary").then((res) => {
-        setSummaryText(res.result);
+      await passwordGenerator(text).then((res: any) => {
+        setPassword(res.random_password);
         setLoading(false);
       });
     } catch (error) {
@@ -20,13 +21,16 @@ function TextSummarization() {
   return (
     <div className="flex items-center justify-center mx-auto mt-4 px-2">
       <div className="text-center border-2 shadow-2xl rounded p-4 w-[500px]">
-        <h1 className="text-3xl mb-4 font-semibold">AI Text Summarization</h1>
+        <h1 className="text-3xl mb-4 font-semibold">
+          AI Random Password Generator
+        </h1>
         <div className="flex items-center justify-center flex-col w-full">
-          <textarea
-            placeholder="Write description...."
-            className="p-2 px-4 rounded border-2 mr-2 w-full mb-4 h-60"
+          <input
+            placeholder="Enter Length of the password"
+            className="p-2 px-4 rounded border-2 mr-2 w-full mb-4 "
             onChange={(e) => setText(e.target.value)}
             value={text}
+            type="number"
           />
           <button
             onClick={handleImage}
@@ -40,13 +44,18 @@ function TextSummarization() {
             <div className=" space-y-2">
               <div className="h-5 w-full animate-pulse bg-gray-300 flex items-center justify-center"></div>
               <div className="h-5 w-full animate-pulse bg-gray-300 flex items-center justify-center"></div>
-              <div className="h-5 w-full animate-pulse bg-gray-300 flex items-center justify-center"></div>
-              <div className="h-5 w-full animate-pulse bg-gray-300 flex items-center justify-center"></div>
-              <div className="h-5 w-full animate-pulse bg-gray-300 flex items-center justify-center"></div>
             </div>
           ) : (
             <div>
-              <p className="text-left">{summaryText}</p>{" "}
+              {password && (
+                <div>
+                  <p className="text-left">{password}</p>
+                  <Copy
+                    className=" float-right text-gray-600 cursor-pointer"
+                    onClick={() => navigator.clipboard.writeText(password!)}
+                  />
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -55,4 +64,4 @@ function TextSummarization() {
   );
 }
 
-export default TextSummarization;
+export default PasswordGenerator;

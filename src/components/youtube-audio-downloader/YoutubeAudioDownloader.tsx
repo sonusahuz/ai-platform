@@ -21,7 +21,7 @@ function YoutubeMp3Dowloader() {
     <div className="flex items-center justify-center mx-auto mt-4 px-2">
       <div className="text-center border-2 shadow-2xl rounded p-4 w-[500px]">
         <h1 className="text-3xl mb-4 font-semibold">
-          AI Youtube Audio Downloader
+          Youtube Audio Downloader
         </h1>
         <div className="flex items-center justify-center flex-col w-full">
           <input
