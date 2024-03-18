@@ -103,14 +103,14 @@ function ChatBot() {
           </h1>
           <form
             onSubmit={handleSubmit}
-            className="bottom-7 right-96 left-0 rounded m-2 fixed flex items-center justify-between p-2 bg-white "
+            className="bottom-7 right-0 left-0 rounded m-2 fixed flex items-center justify-between p-2 bg-white "
           >
             <input
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Type your message..."
-              className="px-2 py-2 mr-2 rounded border-2 mx-auto w-[600px]"
+              className="px-2 py-2 mr-2 rounded border-2 w-full"
             />
             <button
               type="submit"
