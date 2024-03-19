@@ -26,6 +26,7 @@ function YoutubeVideoDowloader() {
       throw new Error("Failed to generate image");
     }
   };
+
   return (
     <div className="flex items-center justify-center mx-auto mt-4 px-2">
       <div className="text-center border-2 shadow-2xl rounded p-4 w-[500px]">
@@ -41,15 +42,8 @@ function YoutubeVideoDowloader() {
             className="px-2 py-2 rounded border-2 w-full"
           />
           <button
-            onClick={() => handleVideoDownload(videoId.slice(32))}
-            className="py-2.5 px-4 rounded bg-black text-white w-full mt-2 hidden md:block"
-          >
-            {loading ? "Loading..." : "Generate"}
-          </button>
-
-          <button
             onClick={() => handleVideoDownload(videoId.slice(17, 28))}
-            className="py-2.5 px-4 rounded bg-black text-white w-full mt-2 md:hidden block"
+            className="py-2.5 px-4 rounded bg-black text-white w-full mt-2"
           >
             {loading ? "Loading..." : "Generate"}
           </button>

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { generateImage, passwordGenerator } from "../../utils/chat-api";
+import { passwordGenerator } from "../../utils/chat-api";
 import { Copy } from "lucide-react";
 
 function PasswordGenerator() {
   const [password, setPassword] = useState<string>();
   const [text, setText] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
-  const handleImage = async () => {
+
+  const handlePasswordGenerator = async () => {
     setLoading(true);
     try {
       await passwordGenerator(text).then((res: any) => {
@@ -33,7 +34,7 @@ function PasswordGenerator() {
             type="number"
           />
           <button
-            onClick={handleImage}
+            onClick={handlePasswordGenerator}
             className="p-2 px-4 rounded bg-black text-white w-full "
           >
             {loading ? "Loading..." : "Generate"}

@@ -5,7 +5,8 @@ function TextSummarization() {
   const [summaryText, setSummaryText] = useState<string>();
   const [text, setText] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
-  const handleImage = async () => {
+
+  const handleTextSummariztion = async () => {
     setLoading(true);
     try {
       await generateImage(text, "summary").then((res) => {
@@ -29,7 +30,7 @@ function TextSummarization() {
             value={text}
           />
           <button
-            onClick={handleImage}
+            onClick={handleTextSummariztion}
             className="p-2 px-4 rounded bg-black text-white w-full "
           >
             {loading ? "Loading..." : "Generate"}

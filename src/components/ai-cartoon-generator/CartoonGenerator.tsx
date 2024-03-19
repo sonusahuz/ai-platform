@@ -6,17 +6,11 @@ function CartoonGenerator() {
   const [cartoon, setCartoon] = useState<{ image_url: string }>();
   const [loading, setLoading] = React.useState<boolean>(false);
 
-  const handleImage = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleCartoon = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     const form = e.currentTarget;
     const formData = new FormData(form);
     const image = formData.get("image");
-
-    if (!image) {
-      alert("Please upload an image");
-      return;
-    }
 
     if (image) {
       setLoading(true);
@@ -35,7 +29,7 @@ function CartoonGenerator() {
     <div className="flex items-center justify-center mx-auto mt-4 px-2">
       <div className="text-center border-2 shadow-2xl rounded p-4 w-[500px]">
         <h1 className="text-3xl mb-4 font-semibold">AI Cartoon Generator</h1>
-        <form onSubmit={handleImage}>
+        <form onSubmit={handleCartoon}>
           <input
             placeholder="Paste Image Link here..."
             type="file"
@@ -68,7 +62,7 @@ function CartoonGenerator() {
                     <img src={cartoon.image_url} alt="" />
                     <button
                       onClick={() => window.open(cartoon.image_url)}
-                      className="p-2 mt-4 bg-blue-500 text-white rounded animate-bounce"
+                      className="p-2 mt-4 w-full bg-blue-500 text-white rounded animate-bounce"
                     >
                       Download Image
                     </button>

@@ -5,7 +5,9 @@ function ObjectsDetection() {
   const [responseText, setResponseText] = useState<any>();
   const [loading, setLoading] = React.useState<boolean>(false);
 
-  const handleImage = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleObjectDetection = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
@@ -34,7 +36,7 @@ function ObjectsDetection() {
           AI Image Object Detection
         </h1>
         <form
-          onSubmit={handleImage}
+          onSubmit={handleObjectDetection}
           className="flex items-center justify-center flex-col w-full"
         >
           <input

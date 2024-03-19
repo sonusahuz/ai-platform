@@ -71,7 +71,7 @@ function RemoveBackground() {
                   <img src={responseImage.url} alt="generate-image" />
                   <button
                     onClick={() => window.open(responseImage.url)}
-                    className="p-2 mt-4 bg-blue-500 text-white rounded animate-bounce"
+                    className="p-2 w-full mt-4 bg-blue-500 text-white rounded animate-bounce"
                   >
                     Download Image
                   </button>

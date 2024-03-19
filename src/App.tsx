@@ -11,6 +11,7 @@ import PasswordGenerator from "./components/password-generator/PasswordGenerator
 import ObjectsDetection from "./components/objects-detection/ObjectDetection";
 import CartoonGenerator from "./components/ai-cartoon-generator/CartoonGenerator";
 import YoutubeVideoDowloader from "./components/youtube-video-downloader/YoutubeVideoDownloader";
+import TextToSpeech from "./components/text-to-speech/TextToSpeech";
 function App() {
   return (
     <BrowserRouter>
@@ -24,6 +25,8 @@ function App() {
         <Route element={<PasswordGenerator />} path="/ai-password-generator" />
         <Route element={<ObjectsDetection />} path="/ai-object-detection" />
         <Route element={<CartoonGenerator />} path="/ai-cartoon-generator" />
+        <Route element={<TextToSpeech />} path="/ai-text-to-speech" />
+
         <Route
           element={<YoutubeVideoDowloader />}
           path="/ai-youtube-video-downloader"

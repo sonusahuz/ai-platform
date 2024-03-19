@@ -5,7 +5,8 @@ function YoutubeMp3Dowloader() {
   const [videoUrl, setVideoUrl] = useState<{ title: string; link: string }>();
   const [text, setText] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
-  const handleImage = async () => {
+
+  const handleYoutubeVideo = async () => {
     setLoading(true);
     try {
       await youtubeDownloader(text).then((res) => {
@@ -32,7 +33,7 @@ function YoutubeMp3Dowloader() {
             className="px-2 py-2 rounded border-2 w-full"
           />
           <button
-            onClick={handleImage}
+            onClick={handleYoutubeVideo}
             className="py-2.5 px-4 rounded bg-black text-white w-full mt-2"
           >
             {loading ? "Loading..." : "Generate"}

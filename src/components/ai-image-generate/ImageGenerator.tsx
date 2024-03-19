@@ -5,7 +5,8 @@ function ImageGenerator() {
   const [image, setImage] = useState<string>();
   const [text, setText] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
-  const handleImage = async () => {
+
+  const handleImageGenerator = async () => {
     setLoading(true);
     try {
       await generateImage(text, "texttoimage2").then((res) => {
@@ -17,14 +18,6 @@ function ImageGenerator() {
     }
   };
 
-  const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href = image!;
-    link.download = "generated-image.png"; // Change the file name if needed
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
   return (
     <div className="flex items-center justify-center mx-auto mt-4 px-2">
       <div className="text-center border-2 shadow-2xl rounded p-4 w-[500px]">
@@ -38,7 +31,7 @@ function ImageGenerator() {
             value={text}
           />
           <button
-            onClick={handleImage}
+            onClick={handleImageGenerator}
             className="p-2 px-4 rounded bg-black text-white w-full lg:w-36"
           >
             {loading ? "Loading..." : "Generate"}
@@ -56,7 +49,7 @@ function ImageGenerator() {
                   <img src={image} alt="generate-image" />
                   <button
                     onClick={() => window.open(image)}
-                    className="p-2 mt-4 bg-blue-500 text-white rounded animate-bounce"
+                    className="p-2 w-full mt-4 bg-blue-500 text-white rounded animate-bounce"
                   >
                     Download Image
                   </button>

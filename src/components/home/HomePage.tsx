@@ -5,10 +5,10 @@ import {
   ImageOff,
   Languages,
   Lock,
-  Scissors,
   ScrollText,
   ShieldQuestion,
   Smile,
+  Volume2,
   Youtube,
   YoutubeIcon,
 } from "lucide-react";
@@ -92,6 +92,13 @@ const AIServices = [
     text: "Download Video",
     icon: <YoutubeIcon className="w-20 h-20" />,
     path: "/ai-youtube-video-downloader",
+  },
+  {
+    id: "12",
+    name: "Text to Speech Converter",
+    text: "Convert Text to Speech",
+    icon: <Volume2 className="w-20 h-20" />,
+    path: "/ai-text-to-speech",
   },
 ];
 
