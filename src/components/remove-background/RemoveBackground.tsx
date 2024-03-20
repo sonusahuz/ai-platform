@@ -35,7 +35,7 @@ function RemoveBackground() {
     <div className="flex items-center justify-center mx-auto mt-4 px-2">
       <div className="text-center border-2 shadow-2xl rounded p-4 w-[400px]">
         <h1 className="text-3xl mb-4 font-semibold">
-          AI Image Background Remove
+          AI Image Background Remover
         </h1>
         <form
           onSubmit={removeBackgroundImageHandle}

@@ -238,6 +238,29 @@ export const youtubeVideoDownloader = async (videoId: string) => {
   }
 };
 
+export const shortLinkGenerator = async (url: string) => {
+  const options = {
+    method: "POST",
+    url: "https://url-shortener42.p.rapidapi.com/shorten/",
+    headers: {
+      "content-type": "application/json",
+      "X-RapidAPI-Key": "3eca7a546fmsh520b6309845ef5dp1dfcc7jsnac8bb8092ec5",
+      "X-RapidAPI-Host": "url-shortener42.p.rapidapi.com",
+    },
+    data: {
+      url: url,
+      validity_duration: 5,
+    },
+  };
+
+  try {
+    const response = await axios.request(options);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const speakLanguages = [
   { name: "Afrikaans", code: "af" },
   { name: "Albanian", code: "sq" },
