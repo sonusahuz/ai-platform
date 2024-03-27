@@ -7,14 +7,18 @@ function TextSummarization() {
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const handleTextSummariztion = async () => {
-    setLoading(true);
-    try {
-      await generateImage(text, "summary").then((res) => {
-        setSummaryText(res.result);
-        setLoading(false);
-      });
-    } catch (error) {
-      throw new Error("Failed to generate image");
+    if (text.trim() === "") {
+      alert("Please enter a valid description");
+    } else {
+      setLoading(true);
+      try {
+        await generateImage(text, "summary").then((res) => {
+          setSummaryText(res.result);
+          setLoading(false);
+        });
+      } catch (error) {
+        throw new Error("Failed to generate image");
+      }
     }
   };
 

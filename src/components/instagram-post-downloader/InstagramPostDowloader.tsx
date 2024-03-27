@@ -7,14 +7,18 @@ function InstagramPostDowloader() {
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const handleInstagramPost = async () => {
-    setLoading(true);
-    try {
-      await instagramDownloader(text).then((res) => {
-        setPosts(res.result.at(0));
-        setLoading(false);
-      });
-    } catch (error) {
-      throw new Error("Failed to generate image");
+    if (text.trim() === "") {
+      alert("Please enter a valid instagram post link");
+    } else {
+      setLoading(true);
+      try {
+        await instagramDownloader(text).then((res) => {
+          setPosts(res.result.at(0));
+          setLoading(false);
+        });
+      } catch (error) {
+        throw new Error("Failed to generate image");
+      }
     }
   };
 

@@ -10,6 +10,7 @@ import {
   Smile,
   Youtube,
   YoutubeIcon,
+  IndianRupee,
   Link2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -99,6 +100,13 @@ const AIServices = [
     text: "Generate Short Link",
     icon: <Link2 className="w-20 h-20" />,
     path: "/short-link-generator",
+  },
+  {
+    id: "13",
+    name: "Currency Converter",
+    text: "Convert Currency",
+    icon: <IndianRupee className="w-20 h-20" />,
+    path: "/currency-converter",
   },
 ];
 

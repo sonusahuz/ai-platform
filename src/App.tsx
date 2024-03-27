@@ -12,6 +12,7 @@ import ObjectsDetection from "./components/objects-detection/ObjectDetection";
 import CartoonGenerator from "./components/cartoon-generator/CartoonGenerator";
 import YoutubeVideoDowloader from "./components/youtube-video-downloader/YoutubeVideoDownloader";
 import ShortLinkGenerator from "./components/short-link-generator/ShortLinkGenerator";
+import CurrenyConverter from "./components/currency-converter/CurrencyConverter";
 function App() {
   return (
     <BrowserRouter>
@@ -26,6 +27,7 @@ function App() {
         <Route element={<ObjectsDetection />} path="/object-detection" />
         <Route element={<CartoonGenerator />} path="/cartoon-generator" />
         <Route element={<ShortLinkGenerator />} path="/short-link-generator" />
+        <Route element={<CurrenyConverter />} path="/currency-converter" />
 
         <Route
           element={<YoutubeVideoDowloader />}

@@ -7,14 +7,18 @@ function ImageGenerator() {
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const handleImageGenerator = async () => {
-    setLoading(true);
-    try {
-      await generateImage(text, "texttoimage2").then((res) => {
-        setImage(res.generated_image);
-        setLoading(false);
-      });
-    } catch (error) {
-      throw new Error("Failed to generate image");
+    if (text.trim() === "") {
+      alert("Please enter a valid description");
+    } else {
+      setLoading(true);
+      try {
+        await generateImage(text, "texttoimage2").then((res) => {
+          setImage(res.generated_image);
+          setLoading(false);
+        });
+      } catch (error) {
+        throw new Error("Failed to generate image");
+      }
     }
   };
 

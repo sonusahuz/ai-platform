@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { shortLinkGenerator } from "../../utils/chat-api";
 import { Copy } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function ShortLinkGenerator() {
   const [createUrl, setCreateUrl] = useState<{ url: string }>();
@@ -8,14 +9,18 @@ function ShortLinkGenerator() {
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const handleUrl = async () => {
-    setLoading(true);
-    try {
-      await shortLinkGenerator(url).then((res) => {
-        setCreateUrl(res);
-        setLoading(false);
-      });
-    } catch (error) {
-      throw new Error("Failed to generate image");
+    if (url.trim() === "") {
+      alert("Please enter a valid URL");
+    } else {
+      setLoading(true);
+      try {
+        await shortLinkGenerator(url).then((res) => {
+          setCreateUrl(res);
+          setLoading(false);
+        });
+      } catch (error) {
+        throw new Error("Failed to generate image");
+      }
     }
   };
 
@@ -49,11 +54,16 @@ function ShortLinkGenerator() {
             <div>
               {createUrl && (
                 <div>
-                  <p className="text-left p-2 border-2 rounded">
+                  Visit :
+                  <Link
+                    to={createUrl.url}
+                    className="text-left text-blue-600 p-2 rounded"
+                  >
                     {createUrl.url}
-                  </p>
+                  </Link>
                   <Copy
-                    className=" float-right text-gray-600 cursor-pointer mt-2"
+                    size={20}
+                    className=" float-right text-gray-600 cursor-pointer"
                     onClick={() =>
                       navigator.clipboard.writeText(createUrl.url!)
                     }

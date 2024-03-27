@@ -8,14 +8,18 @@ function PasswordGenerator() {
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const handlePasswordGenerator = async () => {
-    setLoading(true);
-    try {
-      await passwordGenerator(text).then((res: any) => {
-        setPassword(res.random_password);
-        setLoading(false);
-      });
-    } catch (error) {
-      throw new Error("Failed to generate image");
+    if (text.trim() === "") {
+      alert("Please enter a valid length");
+    } else {
+      setLoading(true);
+      try {
+        await passwordGenerator(text).then((res: any) => {
+          setPassword(res.random_password);
+          setLoading(false);
+        });
+      } catch (error) {
+        throw new Error("Failed to generate image");
+      }
     }
   };
 
@@ -52,6 +56,7 @@ function PasswordGenerator() {
                 <div>
                   <p className="text-left">{password}</p>
                   <Copy
+                    size={20}
                     className=" float-right text-gray-600 cursor-pointer"
                     onClick={() => navigator.clipboard.writeText(password!)}
                   />

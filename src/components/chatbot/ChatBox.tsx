@@ -33,22 +33,26 @@ function ChatBot() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      setLoading(true);
-      await chatBot(message).then((res) => {
-        setLoading(false);
-        setMessage("");
-        setAiResponse([
-          ...aiResponse,
-          {
-            id: Date.now().toString(),
-            question: message,
-            answer: res,
-          },
-        ]);
-      });
-    } catch (error) {
-      throw new Error("Failed to generate image");
+    if (message.trim() === "") {
+      alert("Please enter a valid message");
+    } else {
+      try {
+        setLoading(true);
+        await chatBot(message).then((res) => {
+          setLoading(false);
+          setMessage("");
+          setAiResponse([
+            ...aiResponse,
+            {
+              id: Date.now().toString(),
+              question: message,
+              answer: res,
+            },
+          ]);
+        });
+      } catch (error) {
+        throw new Error("Failed to generate image");
+      }
     }
   };
   return (
@@ -103,7 +107,7 @@ function ChatBot() {
           </h1>
           <form
             onSubmit={handleSubmit}
-            className="bottom-7 right-0 left-0 rounded m-2 fixed flex items-center justify-between p-2 bg-white "
+            className="bottom-5 right-0 left-0 rounded m-2 fixed flex items-center justify-between p-2 bg-white "
           >
             <input
               type="text"
@@ -119,14 +123,6 @@ function ChatBot() {
               Send
             </button>
           </form>
-          <div className=" mx-auto bottom-1 right-0 left-0 rounded m-2 fixed bg-white">
-            <h1 className="text-xs text-center">
-              Designed & Developed by{" "}
-              <a href="https://sonusahu.vercel.app" className="text-blue-500">
-                Sonu Sahu
-              </a>
-            </h1>
-          </div>
         </div>
       </div>
     </div>

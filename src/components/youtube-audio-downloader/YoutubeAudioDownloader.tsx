@@ -7,14 +7,18 @@ function YoutubeMp3Dowloader() {
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const handleYoutubeVideo = async () => {
-    setLoading(true);
-    try {
-      await youtubeDownloader(text).then((res) => {
-        setVideoUrl(res);
-        setLoading(false);
-      });
-    } catch (error) {
-      throw new Error("Failed to generate image");
+    if (text.trim() === "") {
+      alert("Please enter a valid youtube link");
+    } else {
+      setLoading(true);
+      try {
+        await youtubeDownloader(text).then((res) => {
+          setVideoUrl(res);
+          setLoading(false);
+        });
+      } catch (error) {
+        throw new Error("Failed to generate image");
+      }
     }
   };
 

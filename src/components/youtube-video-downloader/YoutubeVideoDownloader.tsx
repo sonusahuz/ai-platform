@@ -16,14 +16,18 @@ function YoutubeVideoDowloader() {
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const handleVideoDownload = async (videoLink: string) => {
-    setLoading(true);
-    try {
-      await youtubeVideoDownloader(videoLink).then((res) => {
-        setVideo(res);
-        setLoading(false);
-      });
-    } catch (error) {
-      throw new Error("Failed to generate image");
+    if (videoLink.trim() === "") {
+      alert("Please enter a valid youtube video link");
+    } else {
+      setLoading(true);
+      try {
+        await youtubeVideoDownloader(videoLink).then((res) => {
+          setVideo(res);
+          setLoading(false);
+        });
+      } catch (error) {
+        throw new Error("Failed to generate image");
+      }
     }
   };
 
